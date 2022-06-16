@@ -8,7 +8,13 @@
 <script>
     //Computer randomly picks Rock, Paper or Scissors
     function computerPlay() {
-    let move = ["Rock","Paper","Scissors"]
+        let rock = "Rock"
+        let r = rock.toLowerCase()
+        let paper = "Paper"
+        let p = paper.toLowerCase()
+        let scissors = "Scissors"
+        let s = scissors.toLowerCase()
+        let move = [r,p,s]
     return move[Math.floor(Math.random()*move.length)];
     }
     //Player selects Rock, Paper or Scissors
@@ -22,18 +28,19 @@
         move = move.toLowerCase()
         switch (move) {
             case r:  
-            console.log(move)
+            return (move)
             break;
             case p:  
-            console.log(move)
+            return (move)
             break;
             case s: 
-            console.log(move)
+            return (move)
             break;
             default:
-                console.log("Incorrect Response")
+            return ("Incorrect Response")
 }
         }
+
     //Player plays computer in Rock, Paper, or Scissors
 
 </script>
