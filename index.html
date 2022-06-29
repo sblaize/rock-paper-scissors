@@ -17,8 +17,8 @@
         let move = [r,p,s]
     return move[Math.floor(Math.random()*move.length)];
     }
-    //Player selects Rock, Paper or Scissors
-    function playerSelection(move) {
+    //Player selects case sensitive Rock, Paper or Scissors
+    function playerPlay(move) {
         let rock = "Rock"
         let r = rock.toLowerCase()
         let paper = "Paper"
@@ -41,7 +41,40 @@
 }
         }
 
-    //Player plays computer in Rock, Paper, or Scissors
+    //Player plays computer in Rock, Paper, or Scissors in a single round
+function playRound(playerSelection, computerSelection) {
+    let rock = "Rock"
+        let r = rock.toLowerCase()
+        let paper = "Paper"
+        let p = paper.toLowerCase()
+        let scissors = "Scissors"
+        let s = scissors.toLowerCase()
+        playerSelection = playerSelection.toLowerCase()
+        computerSelection =computerSelection.toLowerCase()
+if (playerSelection === computerSelection) {
+    return "It's a Tie";
+} else if (playerSelection === r && computerSelection === s){
+    return "Player Wins"
+}
+ else if (playerSelection === s && computerSelection === p){
+    return "Player Wins"
+
+} else if (playerSelection === p && computerSelection === r){
+    return "Player Wins"
+} 
+else if (playerSelection === r && computerSelection === p){
+    return "Computer Wins"
+}
+ else if (playerSelection === s && computerSelection === r){
+    return "Computer Wins"
+
+} else if (playerSelection === p && computerSelection === s){
+    return "Computer Wins"
+}
+    }
+const playerSelection ="rock"
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection))
 
 </script>
 </body>
