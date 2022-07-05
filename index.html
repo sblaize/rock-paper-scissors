@@ -17,33 +17,33 @@
         let move = [r,p,s]
     return move[Math.floor(Math.random()*move.length)];
     }
-    //Player selects case sensitive Rock, Paper or Scissors
-    function playerPlay(move) {
+
+        function playerPlay() { // This function takes a valid input from the user
         let rock = "Rock"
         let r = rock.toLowerCase()
         let paper = "Paper"
         let p = paper.toLowerCase()
         let scissors = "Scissors"
         let s = scissors.toLowerCase()
-        move = move.toLowerCase()
-        switch (move) {
-            case r:  
-            return (move)
-            break;
-            case p:  
-            return (move)
-            break;
-            case s: 
-            return (move)
-            break;
-            default:
-            return ("Incorrect Response")
-}
+        const ask = prompt("Rock, Paper, or Scissors?").toLowerCase();
+        switch(ask) {
+        case r:
+        return(ask)
+        break;
+        case p:
+        return(ask)
+        break;
+        case s:
+        return(ask)
+        break;
+        default:
+        return("Incorrect Response")
+ } 
         }
 
     //Player plays computer in Rock, Paper, or Scissors in a single round
 function playRound(playerSelection, computerSelection) {
-    let rock = "Rock"
+        let rock = "Rock"
         let r = rock.toLowerCase()
         let paper = "Paper"
         let p = paper.toLowerCase()
@@ -75,6 +75,13 @@ else if (playerSelection === r && computerSelection === p){
 const playerSelection ="rock"
 const computerSelection = computerPlay();
 console.log(playRound(playerSelection, computerSelection))
+
+//Function that plays a 5 round game that keeps score and reports a winner
+
+function game() {
+
+}
+
 
 </script>
 </body>
