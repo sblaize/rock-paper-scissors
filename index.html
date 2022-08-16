@@ -8,23 +8,23 @@
 <script>
     //Computer randomly picks Rock, Paper or Scissors
     function computerPlay() {
-        let rock = "Rock"
-        let r = rock.toLowerCase()
-        let paper = "Paper"
-        let p = paper.toLowerCase()
-        let scissors = "Scissors"
-        let s = scissors.toLowerCase()
-        let move = [r,p,s]
+        let rock = "Rock";
+        let r = rock.toLowerCase();
+        let paper = "Paper";
+        let p = paper.toLowerCase();
+        let scissors = "Scissors";
+        let s = scissors.toLowerCase();
+        let move = [r,p,s];
     return move[Math.floor(Math.random()*move.length)];
     }
 
         function playerPlay() { // This function takes a valid input from the user
-        let rock = "Rock"
-        let r = rock.toLowerCase()
-        let paper = "Paper"
-        let p = paper.toLowerCase()
-        let scissors = "Scissors"
-        let s = scissors.toLowerCase()
+        let rock = "Rock";
+        let r = rock.toLowerCase();
+        let paper = "Paper";
+        let p = paper.toLowerCase();
+        let scissors = "Scissors";
+        let s = scissors.toLowerCase();
         const ask = prompt("Rock, Paper, or Scissors?").toLowerCase();
         switch(ask) {
         case r:
@@ -43,44 +43,59 @@
 
     //Player plays computer in Rock, Paper, or Scissors in a single round
 function playRound(playerSelection, computerSelection) {
-        let rock = "Rock"
-        let r = rock.toLowerCase()
-        let paper = "Paper"
-        let p = paper.toLowerCase()
-        let scissors = "Scissors"
-        let s = scissors.toLowerCase()
-        playerSelection = playerSelection.toLowerCase()
-        computerSelection =computerSelection.toLowerCase()
-if (playerSelection === computerSelection) {
-    return "It's a Tie";
-} else if (playerSelection === r && computerSelection === s){
-    return "Player Wins"
+        let rock = "Rock";
+        let r = rock.toLowerCase();
+        let paper = "Paper";
+        let p = paper.toLowerCase();
+        let scissors = "Scissors";
+        let s = scissors.toLowerCase();
+        playerSelection = playerPlay();
+        computerSelection = computerPlay() 
+        player = "Player Wins";
+        computer = "Computer Wins";
+        tie = "It's a Tie";
+if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+    return tie;
+} else if (playerSelection.toLowerCase() === r && computerSelection.toLowerCase() === s){
+    ++playerScore
+    return player;
 }
- else if (playerSelection === s && computerSelection === p){
-    return "Player Wins"
-
-} else if (playerSelection === p && computerSelection === r){
-    return "Player Wins"
+ else if (playerSelection.toLowerCase() === s && computerSelection.toLowerCase() === p){
+    ++playerScore
+    return player;
+} else if (playerSelection.toLowerCase() === p && computerSelection.toLowerCase() === r){
+    ++playerScore
+    return player;
 } 
-else if (playerSelection === r && computerSelection === p){
-    return "Computer Wins"
+else if (playerSelection.toLowerCase() === r && computerSelection.toLowerCase() === p){
+    ++compScore
+    return computer;
 }
- else if (playerSelection === s && computerSelection === r){
-    return "Computer Wins"
-
-} else if (playerSelection === p && computerSelection === s){
-    return "Computer Wins"
+ else if (playerSelection.toLowerCase() === s && computerSelection.toLowerCase() === r){
+    ++compScore
+    return computer;
+} else if (playerSelection.toLowerCase() === p && computerSelection.toLowerCase() === s){
+    ++compScore
+    return computer;
 }
     }
-const playerSelection ="rock"
-const computerSelection = computerPlay();
-console.log(playRound(playerSelection, computerSelection))
 
 //Function that plays a 5 round game that keeps score and reports a winner
 
 function game() {
-
+for (let i = 0; i < 5; i++) {playRound()}
+if (playerScore === 3) {
+    return `Player Wins.`;
 }
+else {
+    return "Computer Wins"
+}
+}
+
+let playerScore = 0;
+let compScore = 0;
+
+
 
 
 </script>
