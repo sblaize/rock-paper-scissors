@@ -84,11 +84,12 @@ else if (playerSelection.toLowerCase() === r && computerSelection.toLowerCase() 
 
 function game() {
 for (let i = 0; i < 5; i++) {playRound()}
-if (playerScore === 3) {
-    return `Player Wins.`;
-}
-else {
-    return "Computer Wins"
+if (playerScore > compScore) {
+    console.log("Player Wins!");
+} else if (playerScore < compScore) {
+    console.log("Computer Wins!");
+} else {
+     console.log("It's a tie!");
 }
 }
 
