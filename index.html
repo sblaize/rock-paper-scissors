@@ -51,21 +51,21 @@ function playRound(playerSelection, computerSelection) {
         let s = scissors.toLowerCase();
         playerSelection = playerPlay();
         computerSelection = computerPlay() 
-        player = "Player Wins";
-        computer = "Computer Wins";
-        tie = "It's a Tie";
+        player = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Player Wins`
+        computer = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Computer Wins`
+        tie = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. It's a tie!`
 if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-    return tie;
+    return tie
 } else if (playerSelection.toLowerCase() === r && computerSelection.toLowerCase() === s){
     ++playerScore
-    return player;
+    return player
 }
  else if (playerSelection.toLowerCase() === s && computerSelection.toLowerCase() === p){
     ++playerScore
-    return player;
+    return player
 } else if (playerSelection.toLowerCase() === p && computerSelection.toLowerCase() === r){
     ++playerScore
-    return player;
+    return player
 } 
 else if (playerSelection.toLowerCase() === r && computerSelection.toLowerCase() === p){
     ++compScore
@@ -80,18 +80,7 @@ else if (playerSelection.toLowerCase() === r && computerSelection.toLowerCase() 
 }
     }
 
-//Function that plays a 5 round game that keeps score and reports a winner
 
-function game() {
-for (let i = 0; i < 5; i++) {playRound()}
-if (playerScore > compScore) {
-    console.log("Player Wins!");
-} else if (playerScore < compScore) {
-    console.log("Computer Wins!");
-} else {
-     console.log("It's a tie!");
-}
-}
 
 let playerScore = 0;
 let compScore = 0;
