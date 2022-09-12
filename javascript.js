@@ -7,7 +7,8 @@
     let scissors = "Scissors";
     let s = scissors.toLowerCase();
     let move = [r,p,s];
-return move[Math.floor(Math.random()*move.length)];
+    const move1 = move[Math.floor(Math.random()*move.length)];
+    return move1
 }
 
     function playerPlay() { // This function takes a valid input from the user
@@ -33,6 +34,8 @@ return move[Math.floor(Math.random()*move.length)];
 } 
     }
 
+
+
 //Player plays computer in Rock, Paper, or Scissors in a single round
 function playRound(playerSelection, computerSelection) {
     let rock = "Rock";
@@ -41,36 +44,40 @@ function playRound(playerSelection, computerSelection) {
     let p = paper.toLowerCase();
     let scissors = "Scissors";
     let s = scissors.toLowerCase();
-    playerSelection = playerPlay();
-    computerSelection = computerPlay() 
-    player = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Player Wins`
-    computer = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Computer Wins`
-    tie = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. It's a tie!`
-if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+    const player = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Player Wins`
+    const computer = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Computer Wins`
+    const tie = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. It's a tie!`
+if (playerSelection === computerSelection) {
 return tie
-} else if (playerSelection.toLowerCase() === r && computerSelection.toLowerCase() === s){
+} else if (playerSelection === r && computerSelection === s){
 ++playerScore
 return player
 }
-else if (playerSelection.toLowerCase() === s && computerSelection.toLowerCase() === p){
+else if (playerSelection === s && computerSelection === p){
 ++playerScore
 return player
-} else if (playerSelection.toLowerCase() === p && computerSelection.toLowerCase() === r){
+} else if (playerSelection === p && computerSelection === r){
 ++playerScore
 return player
 } 
-else if (playerSelection.toLowerCase() === r && computerSelection.toLowerCase() === p){
+else if (playerSelection === r && computerSelection === p){
 ++compScore
 return computer;
 }
-else if (playerSelection.toLowerCase() === s && computerSelection.toLowerCase() === r){
+else if (playerSelection === s && computerSelection === r){
 ++compScore
 return computer;
-} else if (playerSelection.toLowerCase() === p && computerSelection.toLowerCase() === s){
+} else if (playerSelection === p && computerSelection === s){
 ++compScore
 return computer;
 }
 }
+
+
+const rockButton = document.getElementById('rock')
+const paperButton = document.getElementById('paper')
+const scissorsButton = document.getElementById('scissors')
+
 
 
 let playerScore = 0;
