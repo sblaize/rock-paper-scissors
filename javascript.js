@@ -78,6 +78,28 @@ const rockButton = document.getElementById('rock')
 const paperButton = document.getElementById('paper')
 const scissorsButton = document.getElementById('scissors')
 
+rockButton.addEventListener('click', () => {
+    const rock = "rock";
+    const r = rock.toLowerCase();
+    const playerSelection = r 
+    const computerSelection = computerPlay();
+    console.log(playRound(playerSelection, computerSelection))});
+
+paperButton.addEventListener('click', () => {
+        const paper = "paper";
+        const p = paper.toLowerCase();
+        const playerSelection = p
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection))});
+        
+scissorsButton.addEventListener('click', () => {
+        const scissors = "scissors";
+        const s = scissors.toLowerCase();
+        const playerSelection = s
+        const computerSelection = computerPlay();
+        console.log(playRound(playerSelection, computerSelection))});
+
+
 
 
 let playerScore = 0;
