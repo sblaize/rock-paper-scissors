@@ -11,31 +11,6 @@
     return move1
 }
 
-    function playerPlay() { // This function takes a valid input from the user
-    let rock = "Rock";
-    let r = rock.toLowerCase();
-    let paper = "Paper";
-    let p = paper.toLowerCase();
-    let scissors = "Scissors";
-    let s = scissors.toLowerCase();
-    const ask = prompt("Rock, Paper, or Scissors?").toLowerCase();
-    switch(ask) {
-    case r:
-    return(ask)
-    break;
-    case p:
-    return(ask)
-    break;
-    case s:
-    return(ask)
-    break;
-    default:
-    return("Incorrect Response")
-} 
-    }
-
-
-
 //Player plays computer in Rock, Paper, or Scissors in a single round
 function playRound(playerSelection, computerSelection) {
     let rock = "Rock";
