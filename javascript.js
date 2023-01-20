@@ -15,11 +15,18 @@ let playerScore = 0;
 let compScore = 0;
 const computerSelection = computerPlay();
 const container = document.querySelector('#container');
+
 function changeToZero() {
     playerScore = 0;
     compScore = 0;
     }
+
+function increment(n) {
+return n + 1
+}
+
 //Player plays computer in Rock, Paper, or Scissors in a single round
+
 function playRound(playerSelection, computerSelection) {
     let rock = "Rock";
     let r = rock.toLowerCase();
@@ -27,9 +34,9 @@ function playRound(playerSelection, computerSelection) {
     let p = paper.toLowerCase();
     let scissors = "Scissors";
     let s = scissors.toLowerCase();
-    const player = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Player Wins. Player Score is ${playerScore}. Computer Score is ${compScore}.`
-    const computer = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. Computer Wins. Player Score is ${playerScore}. Computer Score is ${compScore}.`
-    const tie = `Player selects: ${playerSelection}. Computer selects ${computerSelection}. It's a tie!. Player Score is ${playerScore}. Computer Score is ${compScore}.`
+    const player = `Player selects: ${playerSelection}. Computer selects ${computerSelection}.`
+    const computer = `Player selects: ${playerSelection}. Computer selects ${computerSelection}.`
+    const tie = `Player selects: ${playerSelection}. Computer selects ${computerSelection}.`
 if (playerSelection === computerSelection) {
 return tie
 } else if (playerSelection === r && computerSelection === s){
@@ -42,8 +49,8 @@ return tie
         playerScore = playerScore;
         compScore = compScore;
     }
-n = ++playerScore;
-playerScore = n;
+n = increment(playerScore)
+playerScore = n
 return player;
 }
 else if (playerSelection === s && computerSelection === p){
@@ -56,8 +63,8 @@ else if (playerSelection === s && computerSelection === p){
         playerScore = playerScore;
         compScore = compScore;
     }
-n = ++playerScore;
-playerScore = n;
+n = increment(playerScore)
+playerScore = n
 return player;
 } else if (playerSelection === p && computerSelection === r){
     if (playerScore >=5) {
@@ -69,8 +76,8 @@ return player;
         playerScore = playerScore;
         compScore = compScore;
     }
-    n = ++playerScore;
-    playerScore = n;
+n = increment(playerScore)
+playerScore = n
 return player;
 } 
 else if (playerSelection === r && computerSelection === p){
@@ -83,8 +90,8 @@ else if (playerSelection === r && computerSelection === p){
         playerScore = playerScore;
         compScore = compScore;
     }
-n = ++compScore;
-compScore = n;
+    n = increment(compScore)
+    compScore = n
 return computer;
 }
 else if (playerSelection === s && computerSelection === r){
@@ -97,8 +104,8 @@ else if (playerSelection === s && computerSelection === r){
         playerScore = playerScore;
         compScore = compScore;
     }
-    n = ++compScore;
-    compScore = n;
+    n = increment(compScore)
+    compScore = n
 return computer;
 } else if (playerSelection === p && computerSelection === s){
     if (compScore >=5) {
@@ -110,8 +117,8 @@ return computer;
         playerScore = playerScore;
         compScore = compScore;
     }
-    n = ++compScore;
-    compScore = n;
+    n = increment(compScore)
+    compScore = n
 return computer;
 }
 
@@ -128,9 +135,13 @@ rockButton.addEventListener('click', () => {
     const playerSelection = r;
     const computerSelection = computerPlay();
     const div = document.createElement('div');
+    const para = document.createElement('p');
     const pR = playRound(playerSelection, computerSelection);
     div.textContent = pR;
+    para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
+    para.style.color = 'blue'
     container.appendChild(div);
+    container.appendChild(para);
 });
 
 
@@ -140,9 +151,13 @@ paperButton.addEventListener('click', () => {
         const playerSelection = p;
         const computerSelection = computerPlay();
         const div = document.createElement('div');
+        const para = document.createElement('p');
         const pR = playRound(playerSelection, computerSelection);
+        para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
         div.textContent = pR;
+        para.style.color = 'blue'
         container.appendChild(div);
+        div.appendChild(para);
 });
         
 scissorsButton.addEventListener('click', () => {
@@ -151,8 +166,12 @@ scissorsButton.addEventListener('click', () => {
         const playerSelection = s;
         const computerSelection = computerPlay();
         const div = document.createElement('div');
+        const para = document.createElement('p');
         const pR = playRound(playerSelection, computerSelection);
+        para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
         div.textContent = pR;
+        para.style.color = 'blue'
         container.appendChild(div);
+        container.appendChild(para);
 });
 
