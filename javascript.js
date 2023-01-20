@@ -37,10 +37,11 @@ function playRound(playerSelection, computerSelection) {
     const player = `Player selects: ${playerSelection}. Computer selects ${computerSelection}.`
     const computer = `Player selects: ${playerSelection}. Computer selects ${computerSelection}.`
     const tie = `Player selects: ${playerSelection}. Computer selects ${computerSelection}.`
+
 if (playerSelection === computerSelection) {
 return tie
 } else if (playerSelection === r && computerSelection === s){
-    if (playerScore >=5) {
+    if (playerScore ==5) {
         const div = document.createElement('div');
         div.textContent = "Player Wins. Game Over";
         container.appendChild(div);
@@ -52,9 +53,8 @@ return tie
 n = increment(playerScore)
 playerScore = n
 return player;
-}
-else if (playerSelection === s && computerSelection === p){
-    if (playerScore >=5) {
+} else if (playerSelection === s && computerSelection === p){
+    if (playerScore ==5) {
         const div = document.createElement('div');
         div.textContent = "Player Wins. Game Over";
         container.appendChild(div);
@@ -67,7 +67,7 @@ n = increment(playerScore)
 playerScore = n
 return player;
 } else if (playerSelection === p && computerSelection === r){
-    if (playerScore >=5) {
+    if (playerScore ==5) {
         const div = document.createElement('div');
         div.textContent = "Player Wins. Game Over";
         container.appendChild(div);
@@ -81,7 +81,7 @@ playerScore = n
 return player;
 } 
 else if (playerSelection === r && computerSelection === p){
-     if (compScore >=5) {
+     if (compScore ==5) {
         const div = document.createElement('div');
         div.textContent = "Computer Wins. Game Over";
         container.appendChild(div);
@@ -95,7 +95,7 @@ else if (playerSelection === r && computerSelection === p){
 return computer;
 }
 else if (playerSelection === s && computerSelection === r){
-    if (compScore >=5) {
+    if (compScore ==5) {
         const div = document.createElement('div');
         div.textContent = "Computer Wins. Game Over";
         container.appendChild(div);
@@ -108,7 +108,7 @@ else if (playerSelection === s && computerSelection === r){
     compScore = n
 return computer;
 } else if (playerSelection === p && computerSelection === s){
-    if (compScore >=5) {
+    if (compScore ==5) {
         const div = document.createElement('div');
         div.textContent = "Computer Wins. Game Over";
         container.appendChild(div);
@@ -138,12 +138,19 @@ rockButton.addEventListener('click', () => {
     const para = document.createElement('p');
     const pR = playRound(playerSelection, computerSelection);
     div.textContent = pR;
-    para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
+    if (playerScore == 5) {
+        para.textContent = `Player Score: Match Point. Computer Score: ${compScore}.`
+    } else if (compScore == 5) {
+        para.textContent = `Player Score: ${playerScore}. Computer Score: Match Point`
+    } else if (playerScore == 5 && compScore == 5){
+        para.textContent = `Player Score: Match Point. Computer Score: Match Point.`;
+    } else {
+        para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
+    }
     para.style.color = 'blue'
     container.appendChild(div);
     container.appendChild(para);
 });
-
 
 paperButton.addEventListener('click', () => {
         const paper = "paper";
@@ -153,11 +160,19 @@ paperButton.addEventListener('click', () => {
         const div = document.createElement('div');
         const para = document.createElement('p');
         const pR = playRound(playerSelection, computerSelection);
-        para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
         div.textContent = pR;
+        if (playerScore == 5) {
+            para.textContent = `Player Score: Match Point. Computer Score: ${compScore}.`
+        } else if (compScore == 5) {
+            para.textContent = `Player Score: ${playerScore}. Computer Score: Match Point`
+        } else if (playerScore == 5 && compScore == 5){
+            para.textContent = `Player Score: Match Point. Computer Score: Match Point.`;
+        } else {
+            para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
+        }
         para.style.color = 'blue'
         container.appendChild(div);
-        div.appendChild(para);
+        container.appendChild(para);
 });
         
 scissorsButton.addEventListener('click', () => {
@@ -168,8 +183,16 @@ scissorsButton.addEventListener('click', () => {
         const div = document.createElement('div');
         const para = document.createElement('p');
         const pR = playRound(playerSelection, computerSelection);
-        para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
         div.textContent = pR;
+        if (playerScore == 5) {
+            para.textContent = `Player Score: Match Point. Computer Score: ${compScore}.`
+        } else if (compScore == 5) {
+            para.textContent = `Player Score: ${playerScore}. Computer Score: Match Point`
+        } else if (playerScore == 5 && compScore == 5){
+            para.textContent = `Player Score: Match Point. Computer Score: Match Point.`;
+        } else {
+            para.textContent = `Player Score: ${playerScore}. Computer Score: ${compScore}.`;
+        }
         para.style.color = 'blue'
         container.appendChild(div);
         container.appendChild(para);
